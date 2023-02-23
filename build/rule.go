@@ -200,6 +200,9 @@ func (r *Rule) SetKind(kind string) {
 
 // ExplicitName returns the rule's target name if it's explicitly provided as a string value, "" otherwise.
 func (r *Rule) ExplicitName() string {
+	if r.AttrString("base_name") != "" {
+		return r.AttrString("base_name")
+	}
 	return r.AttrString("name")
 }
 
